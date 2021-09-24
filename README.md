@@ -1,14 +1,14 @@
 # Algorithms - Solutions by Yuran
 
 ### Graph
-+ [x] Tarjan [**C++**](Algorithms/Graph/Tarjan.cpp)
-+ [x] Maximum Flow [**C++**](Algorithms/Graph/Flow)
-+ [x] Bridge - Joint [**C++**](Algorithms/Graph/Bridge%20-%20Joint.cpp)
-+ [x] Biconnectivity [**C++**](Algorithms/Graph/Biconnectivity.cpp)
-+ [x] Maximum Matching [**C++**](Algorithms/Graph/Maximum%20Matching)
-+ [x] Minimum Spanning Tree [**C++**](Algorithms/Graph/Kruskal.cpp)
++ [x] [**Tarjan**](Algorithms/Graph/Tarjan.cpp)
++ [x] [**Maximum Flow**](Algorithms/Graph/Flow)
++ [x] [**Bridge - Joint**](Algorithms/Graph/Bridge%20-%20Joint.cpp)
++ [x] [**Biconnectivity**](Algorithms/Graph/Biconnectivity.cpp)
++ [x] [**Maximum Matching**](Algorithms/Graph/Maximum%20Matching)
++ [x] [**Minimum Spanning Tree**](Algorithms/Graph/Kruskal.cpp)
 
 ### String
-+ [x] Aho Corasick [**C++**](Algorithms/String/Aho%20Corasick.cpp)
-+ [x] Suffix Array [**C++**](Algorithms/String/Suffix%20Array.cpp)
-+ [x] Suffix Automaton [**C++**](Algorithms/String/Suffix%20Automaton.cpp)
++ [x] [**Aho Corasick**](Algorithms/String/Aho%20Corasick.cpp)
++ [x] [**Suffix Array**](Algorithms/String/Suffix%20Array.cpp)
++ [x] [**Suffix Automaton**](Algorithms/String/Suffix%20Automaton.cpp)
