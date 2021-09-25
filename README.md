@@ -1,6 +1,11 @@
 # Algorithms - Solutions by Yuran
 
 ## Algorithms
+
+#### Data Structures
++ [x] [**Segment Tree**](Algorithms/Data%20Structures/SegmentTree.cpp)
++ [x] [**Lazy Propagation**](Algorithms/Data%20Structures/LazyPropagation.cpp)
+
 #### Graph
 + [x] [**Tarjan**](Algorithms/Graph/Tarjan.cpp)
 + [x] [**Maximum Flow**](Algorithms/Graph/Flow)
@@ -10,6 +15,7 @@
 + [x] [**Minimum Spanning Tree**](Algorithms/Graph/Kruskal.cpp)
 
 #### String
++ [x] [**Trie**](Algorithms/String/Trie.cpp)
 + [x] [**Aho Corasick**](Algorithms/String/Aho%20Corasick.cpp)
 + [x] [**Suffix Array**](Algorithms/String/Suffix%20Array.cpp)
 + [x] [**Suffix Automaton**](Algorithms/String/Suffix%20Automaton.cpp)
