@@ -16,6 +16,8 @@
 
 #### String
 + [x] [**Trie**](Algorithms/String/Trie.cpp)
++ [x] [**Z Function**](Algorithms/String/Z_Function.cpp)
++ [x] [**Knuth - Morris - Pratt**](Algorithms/String/KMP(Knuth-Morris-Pratt).cpp)
 + [x] [**Aho Corasick**](Algorithms/String/Aho%20Corasick.cpp)
 + [x] [**Suffix Array**](Algorithms/String/Suffix%20Array.cpp)
 + [x] [**Suffix Automaton**](Algorithms/String/Suffix%20Automaton.cpp)
