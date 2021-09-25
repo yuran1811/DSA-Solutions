@@ -19,4 +19,4 @@
 + [x] CSES [**String**](Solutions/CSES/String)
 
 ## Others
-+ [x] [**Others**]
++ [x] [**Others**](Others)
