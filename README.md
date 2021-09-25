@@ -14,6 +14,6 @@
 + [x] [**Suffix Array**](Algorithms/String/Suffix%20Array.cpp)
 + [x] [**Suffix Automaton**](Algorithms/String/Suffix%20Automaton.cpp)
 
-##Solutions
-+ [x] Codeforces [**EDU - Suffix Array**](Solutions/Codeforces_Edu/Suffix%20Array)
+## Solutions
++ [x] Codeforces EDU [**Suffix Array**](Solutions/Codeforces_Edu/Suffix%20Array)
 + [x] CSES [**String**](Solutions/CSES/String)
