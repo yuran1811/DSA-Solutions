@@ -17,3 +17,6 @@
 ## Solutions
 + [x] Codeforces EDU [**Suffix Array**](Solutions/Codeforces_Edu/Suffix%20Array)
 + [x] CSES [**String**](Solutions/CSES/String)
+
+## Others
++ [x] [**Others**]
