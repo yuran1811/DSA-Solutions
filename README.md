@@ -14,6 +14,9 @@
 + [x] [**Maximum Matching**](Algorithms/Graph/Maximum%20Matching)
 + [x] [**Minimum Spanning Tree**](Algorithms/Graph/Kruskal.cpp)
 
++ [x] [**Lowest Common Ancestor**](Algorithms/Graph/Tree/LCA.cpp)
++ [x] [**Heavy Light Decomposition**](Algorithms/Graph/Tree/HLD_SegTree.cpp)
+
 #### String
 + [x] [**Hash**](Algorithms/String/Hash.cpp)
 + [x] [**Trie**](Algorithms/String/Trie.cpp)
