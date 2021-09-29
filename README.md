@@ -5,6 +5,7 @@
 #### Data Structures
 + [x] [**Segment Tree**](Algorithms/Data%20Structures/SegmentTree.cpp)
 + [x] [**Lazy Propagation**](Algorithms/Data%20Structures/LazyPropagation.cpp)
++ [x] [**Binary Indexed Tree**](Algorithms/Data%20Structures/Binary-Indexed-Tree.cpp)
 
 #### Graph
 + [x] [**Tarjan**](Algorithms/Graph/Tarjan.cpp)
