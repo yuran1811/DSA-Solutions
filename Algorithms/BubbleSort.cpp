@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+
+const int N = 1e5 + 5;
+
+int n, a[N];
+
+void SORT()
+{
+	bool isSwap;
+	for (int i = 1; i < n; i++)
+	{
+		isSwap = 0;
+		for (int j = 1; j <= n - i; j++)
+			if (a[j] > a[j + 1])
+				swap(a[j], a[j + 1]), isSwap = 1;
+		if (!isSwap) break;
+	}
+}
+
+int main()
+{
+	ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+	cin >> n;
+	for (int i = 1; i <= n; i++)
+		cin >> a[i];
+
+	SORT();
+	for (int i = 1; i <= n; i++)
+		cout << a[i] << " ";
+	return 0;
+}
