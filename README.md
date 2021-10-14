@@ -28,6 +28,7 @@
 
 ## Solutions
 + [x] CSES [**String**](Solutions/CSES/String)
++ [x] CSES [**Graph Algorithms**](Solutions/CSES/Graph%20Algorithms)
 + [x] Codeforces EDU [**Suffix Array**](Solutions/Codeforces_Edu/Suffix%20Array)
 
 ## Others
