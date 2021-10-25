@@ -31,6 +31,7 @@
 + [x] CSES [**String**](Solutions/CSES/String)
 + [x] CSES [**Tree Algorithms**](Solutions/CSES/Tree%20Algorithms)
 + [x] CSES [**Graph Algorithms**](Solutions/CSES/Graph%20Algorithms)
++ [x] CSES [**Sorting & Searching**](Solutions/CSES/Sorting%26Searching)
 + [x] Codeforces EDU [**Suffix Array**](Solutions/Codeforces_Edu/Suffix%20Array)
 
 ## Others
