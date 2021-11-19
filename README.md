@@ -31,9 +31,11 @@
 + [x] CSES [**String**](Solutions/CSES/String)
 + [x] CSES [**Tree Algorithms**](Solutions/CSES/Tree%20Algorithms)
 + [x] CSES [**Graph Algorithms**](Solutions/CSES/Graph%20Algorithms)
-+ [x] CSES [**Dynamic Programming**](Solutions/CSES/Dynamic%20Programming)
 + [x] CSES [**Sorting & Searching**](Solutions/CSES/Sorting%26Searching)
++ [x] CSES [**Dynamic Programming**](Solutions/CSES/Dynamic%20Programming)
 + [x] CSES [**Introductory Problems**](Solutions/CSES/Introductory%20Problems)
+
+
 + [x] Codeforces EDU [**Suffix Array**](Solutions/Codeforces_Edu/Suffix%20Array)
 
 ## Others
