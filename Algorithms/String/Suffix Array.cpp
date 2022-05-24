@@ -1,14 +1,15 @@
 /**
-Application
-* Finding a substring in a string
-* Finding longest repeating substring
-* Number of distinct substrings
-* Number of distinct substrings length i
-* Longest common prefix of two substrings
-* Longest common substring of two substrings
+	Application
+	* Finding a substring in a string
+	* Finding longest repeating substring
+	* Number of distinct substrings
+	* Number of distinct substrings length i
+	* Longest common prefix of two substrings
+	* Longest common substring of two substrings
 */
 
 #include <bits/stdc++.h>
+
 using namespace std;
  
 typedef long long ll;
@@ -35,9 +36,12 @@ void Build(const string &s)
 	for (gap = 1;; gap <<= 1)
 	{
 		sort(suf, suf + n, Cmp);
+
 		for (int i = 0; i < n - 1; i++)
 			tmp[i + 1] = tmp[i] + Cmp(suf[i], suf[i + 1]);
+
 		for (int i = 0; i < n; i++) pos[suf[i]] = tmp[i];
+
 		if (tmp[n - 1] == n - 1) break;
 	}
 }
@@ -47,7 +51,10 @@ void Build(const string &s)
 void Repeat_Substring()
 {
 	int Max = max_element(lcp, lcp + n) - lcp;
-	if (!lcp[Max]) return void (cout << "-1\n");
+
+	if (!lcp[Max])
+		return void (cout << "-1\n");
+
 	cout << s.substr(suf[Max], lcp[Max]) << '\n';
 }
 
@@ -58,8 +65,10 @@ void Num_Distinct_Substr_Lth_i()
 		PREFFIX[n - suf[i] + 1]--,
 		PREFFIX[Prev + 1]++,
 		Prev = lcp[i];
+
 	for (int i = 1; i <= n; i++)
 		cout << PREFFIX[i] << " ", PREFFIX[i + 1] += PREFFIX[i];
+
 	cout << '\n';
 }
 
@@ -85,6 +94,7 @@ void GetLCS()
 	cin >> s >> t; m = s.size();
 	Combine = s + "$" + t + "#";
 	n = Combine.size();
+
 	Build(Combine);
 	LCP_Build(Combine);
 
@@ -92,9 +102,11 @@ void GetLCS()
 	vector <ll> f(n);
 	for (int i = 0; i < n; i++)
 		f[i] = suf[i] >= m ? 2 : 1;
+
 	for (int i = 1; i < n; i++)
 		if (f[i] != f[i - 1] && LCS_lth < lcp[i])
 			LCS_lth = lcp[i], id = suf[i];
+
 	for (int i = id; i < id + LCS_lth; i++)
 		cout << Combine[i];
 }
@@ -103,7 +115,6 @@ void GetLCS()
 
 int main()
 {
-	ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 	// GetLCS();
 	// cin >> s; n = s.size(); Build(s); LCP_Build(s);
 	// Repeat_Substring();

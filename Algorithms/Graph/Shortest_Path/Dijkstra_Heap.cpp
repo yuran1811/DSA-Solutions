@@ -1,21 +1,25 @@
 #include <iostream>
 #include <cstring>
 #include <vector>
+
 #define fi first
 #define se second
+
 using namespace std;
 
-const int N = 1e5 + 5, oo = 1e9 + 7;
+const int N = 1e5 + 5;
+const int oo = 1e9 + 7;
 
 bool Vst[N];
+
 int n, m, s, t;
 int trace[N], d[N];
 int pos[N], heap[N], top;
+
 vector <pair <int, int>> a[N];
 
-void Load_Graph()
+void loadGraph()
 {
-	ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 	cin >> n >> m >> s >> t;
 	for (int i = 1, u, v, w; i <= m; i++)
 		cin >> u >> v >> w,
@@ -99,7 +103,7 @@ void Dijkstra(int s)
 
 int main()
 {
-	Load_Graph();
+	loadGraph();
 	Reset(s);
 	Dijkstra(s);
 	return 0;

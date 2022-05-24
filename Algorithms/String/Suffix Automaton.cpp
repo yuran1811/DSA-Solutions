@@ -1,21 +1,25 @@
 /**
-Usage:
-* Finding longest repeating substring
-* Number of distinct substrings
-* Number of distinct substrings length i
+	Usage:
+	* Finding longest repeating substring
+	* Number of distinct substrings
+	* Number of distinct substrings length i
 */
 
 #include <iostream>
 #include <string>
+
 #define sz(s) (int (s.size()))
+
 using namespace std;
 
-const int N = 1e5 + 5, A = 26;
+const int N = 1e5 + 5;
+const int A = 26;
 
 struct Node
 {
 	Node *link, *child[A];
 	int lth;
+
 	Node()
 	{
 		lth = 0; link = 0;
@@ -83,16 +87,17 @@ void Num_Distinct_Substr_Lth_i()
 void Num_Distinct_Substr()
 {
 	for (char c : s) Add(c - 'a');
+
 	long long res = 0;
 	for (int i = 1; i < sz; i++)
 		res += SufAr[i].lth - SufAr[i].link -> lth;
+
 	cout << res << '\n'; 
 }
 // End
  
 int main()
 {
-	ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 	cin >> s >> t; s += t;
 	// Repeat_Substring();
 	// Num_Distinct_Substr();

@@ -12,7 +12,9 @@ string Multi(string a, int b)
 		dept = (dept + x * b) / 10;
 		++i;
 	}
+	
 	reverse(res.begin(), res.end());
+
 	return res;
 }
 
@@ -21,6 +23,7 @@ string Plus(string a, string b, string res = "")
 	reverse(a.begin(), a.end());
 	reverse(b.begin(), b.end());
 	int id = 0, dept = 0;
+
 	while (dept || id < max(sz(a), sz(b)))
 	{
 		int x = (id < sz(a)) ? a[id] - '0' : 0;
@@ -29,7 +32,9 @@ string Plus(string a, string b, string res = "")
 		dept = val / 10;
 		res += char (val % 10 + '0'); id++;
 	}
+
 	reverse(res.begin(), res.end());
+
 	return res;
 }
 
@@ -37,7 +42,9 @@ string Minus(string a, string b, string res = "")
 {
 	reverse(a.begin(), a.end());
 	reverse(b.begin(), b.end());
+
 	int id = 0, dept = 0;
+
 	while (dept || id < max(sz(a), sz(b)))
 	{
 		int x = (id < sz(a)) ? a[id] - '0' : 0;
@@ -46,7 +53,10 @@ string Minus(string a, string b, string res = "")
 		if (x < y + dept) val += 10, dept = 1; else dept = 0;
 		res += char (val % 10 + '0'); id++;
 	}
+
 	while (res.back() == '0') res.pop_back();
+
 	reverse(res.begin(), res.end());
+
 	return res;
 }

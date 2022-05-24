@@ -1,4 +1,5 @@
 #include<bits/stdc++.h>
+
 using namespace std;
 
 const int N = 205, oo = 1e6 + 7;
@@ -25,10 +26,14 @@ int BFS(int s)
 			if (!y[v] && c[u][v] == fx[u] + fy[v])
 			{
 				y[v] = 1; trace[v] = u;
-				if (!my[v]) return finish = v, true;
+
+				if (!my[v])
+					return finish = v, true;
+
 				q.push(my[v]);
 			}
 	}
+
 	return false;
 }
 
@@ -40,6 +45,7 @@ void Turn()
 			for (int v = 1; v <= n; v++) 
 				if (!y[v]) 
 					delta = min(delta, c[u][v] - fx[u] - fy[v]);
+
 	for (int i = 1; i <= n; i++)
 	{
 		if (x[i]) fx[i] += delta;
@@ -51,16 +57,20 @@ void Enlarge(int s)
 {
 	int u, v = finish, t;
 	while (!mx[s])
-		u = trace[v], t = mx[u],
-		my[v] = u, mx[u] = v,
+		u = trace[v],
+		t = mx[u],
+		my[v] = u,
+		mx[u] = v,
 		v = t;
 }
  
 int main()
 {
-	ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
-	cin >> n; memset(c, oo, sizeof c);
-	while (cin >> u >> v >> w) c[u][v] = min(c[u][v], w);
+	memset(c, oo, sizeof c);
+
+	cin >> n;
+	while (cin >> u >> v >> w)
+		c[u][v] = min(c[u][v], w);
 
 	for (int i = 1; i <= n; i++)
 	{
@@ -74,5 +84,6 @@ int main()
 	cout << res << '\n';
 	for (int i = 1; i <= n; i++)
 		cout << i << " " << mx[i] << '\n';
+
 	return 0;
 }

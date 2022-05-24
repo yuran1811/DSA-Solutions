@@ -1,11 +1,13 @@
 #include <iostream>
+
 using namespace std;
 
-const int N = 1e3, oo = 1e9 + 7;
+const int N = 1e3;
+const int oo = 1e9 + 7;
 
 int n, m, q, a[N][N], t[N][N];
 
-void Load_Graph()
+void loadGraph()
 {
 	cin >> n >> m >> q; 
 	for (int i = 1, u, v, w; i <= m; i++)
@@ -38,9 +40,8 @@ void Floyd()
 
 int main()
 {
-	ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 	Init();
-	Load_Graph();
+	loadGraph();
 	Floyd();
 	return 0;
 }

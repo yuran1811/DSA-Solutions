@@ -4,18 +4,29 @@
 #include <vector>
 #include <conio.h>
 #include <ctime>
+
 #define sz(x) (int) x.size()
+
 using namespace std;
 
 const int WTH = 60, HGT = 30;
 const char BD = 'o', APPLE = '@';
 
-struct POS {int x, y; char c; bool operator == (const POS &a) const {return a.x == x && a.y == y;}};
+struct POS {
+	int x, y;
+	char c;
+
+	bool operator == (const POS &a) const { return a.x == x && a.y == y; }
+};
 POS apple, prevTail;
 
-vector <POS> snake, init = {POS {WTH / 2 + 1, HGT / 2, BD}, POS {WTH / 2, HGT / 2, BD}, POS {WTH / 2 - 1, HGT / 2, BD}};
+vector <POS> snake, init = {
+	POS{ WTH / 2 + 1, HGT / 2, BD },
+	POS{ WTH / 2, HGT / 2, BD },
+	POS{ WTH / 2 - 1, HGT / 2, BD }
+};
 
-enum class Dir {up, right, down, left};
+enum class Dir { up, right, down, left };
 Dir direction = Dir::right;
 
 int score = 0, speed = 200;
@@ -43,19 +54,20 @@ bool isBiteItself();
 bool isAteApple();
 bool isHitWall();
 
-int main() {ShowStartMenu(); return 0;}
+int main() { ShowStartMenu(); return 0; }
 
-bool isHitWall()  {return !snake[0].x || !snake[0].y || snake[0].x == WTH || snake[0].y == HGT;}
-bool isAteApple() {return snake[0] == apple;}
+bool isHitWall()  { return !snake[0].x || !snake[0].y || snake[0].x == WTH || snake[0].y == HGT; }
+bool isAteApple() { return snake[0] == apple; }
 
-void drawSnake() {for (int i = 0; i < sz(snake); i++) drawSnakePart(snake[i]);}
-void displayScore() {Goto(WTH + 3, 2); cout << "Your Score: " << score;}
-void drawSnakePart(POS p) {Goto(p.x, p.y); cout << p.c;}
-void growing() {snake.push_back(prevTail);}
+void drawSnake() { for (int i = 0; i < sz(snake); i++) drawSnakePart(snake[i]); }
+void displayScore() { Goto(WTH + 3, 2); cout << "Your Score: " << score; }
+void drawSnakePart(POS p) { Goto(p.x, p.y); cout << p.c; }
+void growing() { snake.push_back(prevTail); }
 
 void drawBox()
 {
 	for (int i = 0; i < WTH; i++) cout << "v";
+
 	Goto(0, HGT);
 	for (int i = 0; i < WTH; i++) cout << "^";
 	for (int i = 1; i < HGT; i++) Goto(0, i), cout << ">";
@@ -67,14 +79,21 @@ void genApple()
 	srand(time(0));
 	int x = rand() % (WTH - 1) + 1;
 	int y = rand() % (HGT - 1) + 1;
-	apple = {x, y,}; Goto(x, y); cout << APPLE;
+
+	apple = { x, y };
+	Goto(x, y);
+
+	cout << APPLE;
 }
 
 void ShowEndMenu()
 {
 	system("cls"); Goto(0, 0);
+
 	cout << "End game!\nYour score: " << score << "\nStart New Game ([Y]): ";
+	
 	char option; cin >> option; option = tolower(option);
+
 	if (option == 'y') INIT(), startGame(); 
 	else cout << "\nThanks\n", exit(1);
 }
@@ -94,8 +113,10 @@ void startGame()
 			if (ch == 'd' && direction != Dir::left) 	direction = Dir::right; else 
 			if (ch == 'q') {ShowEndMenu(); break;}
 		}
+
 		move();
 		drawHeadnTail();
+
 		if (isAteApple())
 		{
 			score++;
@@ -103,12 +124,14 @@ void startGame()
 			growing();
 			genApple();
 		}
+
 		if (isBiteItself() || isHitWall())
 		{
 			ShowConsoleCursor(true);
 			ShowEndMenu();
 			break;
 		}
+
 		Sleep(speed);
 	}
 }
@@ -127,6 +150,7 @@ void ShowStartMenu()
 {
 	system("cls");
 	cout << "Welcome!\nOptions:\n   #1. Start\n   #2. Quit\nYour choice is: ";
+
 	int option; cin >> option;
 	if (option != 1) exit(1);
 	system("cls"); cout << "Choose your level (1 - 5): ";
@@ -138,7 +162,6 @@ void ShowStartMenu()
 	while (Time) Goto(0, 2), cout << Time-- << "      ", Sleep(1000);
 	Goto(0, 2); cout << "GO!"; Sleep(1000); startGame();
 }
-
 
 void move()
 {

@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+
 using namespace std;
 
 vector <int> KMP;
@@ -20,11 +21,14 @@ void Count_Appear_Times_Of_Each_Prefix(const string &s)
 {
 	vector <int> f(s.size() + 1);
 	KMP.resize(s.size());
+	
 	Build_KMP(s);
 
 	for (int i : KMP) f[i]++;
+
 	for (int i = s.size() - 1; i; i--)
 		f[KMP[i - 1]] += f[i];
+
 	for (int i = 1; i <= int (s.size()); i++)
 		cout << ++f[i] << " ";
 }
@@ -32,7 +36,9 @@ void Count_Appear_Times_Of_Each_Prefix(const string &s)
 void Find(const string &s, const string &t)
 {
 	int n = s.size(), m = t.size();
-	KMP.resize(n); Build_KMP(t);
+	
+	KMP.resize(n);
+	Build_KMP(t);
 
 	int k = 0;
 	for (int i = 0; i < n; i++)
@@ -46,7 +52,6 @@ void Find(const string &s, const string &t)
 
 void Load_Data()
 {
-	ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 	cin >> s >> t;
 }
 
@@ -54,7 +59,8 @@ int Scorpio()
 {
 	Load_Data();
 	Find(s, t);
+
 	return 0;
 }
 
-int main() {Scorpio();}
+int main() { Scorpio(); }

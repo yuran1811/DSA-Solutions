@@ -1,10 +1,12 @@
 #include <bits/stdc++.h>
+
 using namespace std;
 
 typedef long long ll;
 
 const int N = 1e6 + 5;
-const ll MOD = 1e9 + 7, BASE = 311;
+const ll MOD = 1e9 + 7;
+const ll BASE = 311;
 
 ll Pow[N], Hash[N], hashT;
 vector <int> res;
@@ -27,26 +29,27 @@ void Build()
 		hashT = (hashT * BASE + t[i]) % MOD;
 }
 
-ll Get(int i, int j) {return (Hash[j] - Hash[i - 1] * Pow[j - i + 1] + MOD * MOD) % MOD;}
+ll Get(int i, int j) { return (Hash[j] - Hash[i - 1] * Pow[j - i + 1] + MOD * MOD) % MOD; }
 
-void String_Matching()
+void stringMatching()
 {
 	for (int i = 1; i <= n - m + 1; i++)
 		if (hashT == Get(i, i + m - 1))
 			res.push_back(i);
+
 	cout << res.size() << '\n';
 	for (int x : res) cout << x << " ";
 }
 
-void Load_Data()
+void loadData()
 {
-	ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
-	cin >> t >> s; Build();
+	cin >> t >> s;
 }
 
 int main()
 {
-	Load_Data();
-	String_Matching();
+	loadData();
+	Build();
+	stringMatching();
 	return 0;
 }

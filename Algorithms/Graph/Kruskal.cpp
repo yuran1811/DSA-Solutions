@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+
 using namespace std;
 
 const int N = 1e6 + 5;
@@ -8,8 +9,8 @@ int n, m;
 struct DSU
 {
 	vector <int> f;
-	void Init(int n) {f.assign(n + 5, -1);}
-	int  Root(int u) {return f[u] < 0 ? u : f[u] = Root(f[u]);}
+	void Init(int n) { f.resize(n + 5, -1); }
+	int  Root(int u) { return f[u] < 0 ? u : f[u] = Root(f[u]); }
 	bool Mer(int u, int v)
 	{
 		u = Root(u), v = Root(v);
@@ -22,12 +23,11 @@ struct DSU
 struct Edge
 {
 	int u, v, w;
-	bool operator < (const Edge &a) const {return w < a.w;}
+	bool operator < (const Edge &a) const { return w < a.w; }
 } e[N];
 
 int main()
 {
-	ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 	cin >> n >> m;
 	for (int i = 1; i <= m; i++)
 		cin >> e[i].u >> e[i].v >> e[i].w;
@@ -39,5 +39,6 @@ int main()
 		if (dsu.Mer(e[i].u, e[i].v))
 			res += e[i].w;
 	cout << res;
+
 	return 0;
 }

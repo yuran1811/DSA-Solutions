@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+
 using namespace std;
 
 const int N = 1e5 + 5;
@@ -8,7 +9,7 @@ vector <int> a[N];
 int n, m, Bridge = 0;
 int Num[N], Low[N], cnt = 0;
 
-bool mnz(int &a, int b) {return a > b ? a = b, 1 : 0;}
+bool mnz(int &a, int b) { return a > b ? a = b, 1 : 0; }
 
 void Tarjan(int u, int p) 
 {
@@ -18,6 +19,7 @@ void Tarjan(int u, int p)
 	for (int v : a[u])
 	{
 		if (v != p) continue;
+
 		if (Num[v]) mnz(Low[u], Num[v]); else 
 		{
 			Tarjan(v, u);
@@ -42,7 +44,6 @@ void Tarjan(int u, int p)
 
 int main() 
 {
-	ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 	cin >> n >> m;
 	for (int i = 1, u, v; i <= m; i++)
 		cin >> u >> v,
@@ -56,5 +57,6 @@ int main()
 	for (int u = 1; u <= n; u++)
 		NumJoint += IsJoint[u];
 	cout << NumJoint << " " << Bridge;
+
 	return 0;
 }

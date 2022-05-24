@@ -12,6 +12,8 @@ string Multi(string a, int b)
 		dept = (dept + x * b) / 10;
 		++i;
 	}
+	
 	reverse(res.begin(), res.end());
+
 	return res;
 }
