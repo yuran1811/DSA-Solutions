@@ -21,9 +21,15 @@
 -   [**Lowest Common Ancestor**](Algorithms/Graph/Tree/LCA.cpp)
 -   [**Heavy Light Decomposition**](Algorithms/Graph/Tree/HLD_SegTree.cpp)
 
+### Sorting
+
+-   [**Bubble Sort**](Algorithms/Sorting/BubbleSort.cpp)
+-   [**Heap Sort**](Algorithms/Sorting/HeapSort.cpp)
+-   [**Quick Sort**](Algorithms/Sorting/Quicksort.cpp)
+
 #### String
 
--   [**Hash**](Algorithms/String/Hash.cpp)
+-   [**Hash**](Algorithms/String/Hash.cpp) , [**Hash (multi modulo)**](Algorithms/String/Hash_MultiModulo.cpp)
 -   [**Trie**](Algorithms/String/Trie.cpp)
 -   [**Z Function**](Algorithms/String/Z_Function.cpp)
 -   [**Knuth - Morris - Pratt**](<Algorithms/String/KMP(Knuth-Morris-Pratt).cpp>)
