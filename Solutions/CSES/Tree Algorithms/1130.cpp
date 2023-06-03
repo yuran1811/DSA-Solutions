@@ -2,40 +2,35 @@
 #include <iostream>
 #include <vector>
 using namespace std;
- 
+
 const int N = 2e5 + 5;
- 
-vector <int> a[N];
-vector <bool> Vst;
-int n, Res = 0;
- 
-void DFS(int u, int p)
-{
-	for (int v : a[u])
-		if (v != p)
-		{
-			DFS(v, u);
-			if (!Vst[u] && !Vst[v]) 
-				Res++, Vst[u] = Vst[v] = 1;
-		}
+
+vector<int> a[N];
+vector<bool> isVisited;
+int n, res = 0;
+
+void DFS(int u, int p) {
+  for (int v : a[u])
+    if (v != p) {
+      DFS(v, u);
+      if (!isVisited[u] && !isVisited[v])
+        res++, isVisited[u] = isVisited[v] = 1;
+    }
 }
- 
-void Load_Data()
-{
-	ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
-	cin >> n; Vst.assign(n + 1, 0);
-	for (int i = 2, u, v; i <= n; i++)
-		cin >> u >> v, 
-		a[u].push_back(v),
-		a[v].push_back(u);
+
+void loadData() {
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);
+
+  cin >> n;
+  isVisited.assign(n + 1, 0);
+  for (int i = 2, u, v; i <= n; i++)
+    cin >> u >> v, a[u].push_back(v), a[v].push_back(u);
 }
- 
-int Solve()
-{
-	Load_Data();
-	DFS(1, -1);
-	cout << Res;
-	return 0;
+
+int main() {
+  loadData();
+  DFS(1, -1);
+  cout << res;
+  return 0;
 }
- 
-int main() {Solve();}

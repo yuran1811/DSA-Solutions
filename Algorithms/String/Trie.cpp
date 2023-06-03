@@ -7,67 +7,57 @@ const int N = 1e6 + 5;
 int n, q, sz = 0;
 string s;
 
-struct Trie
-{
-	struct Node
-	{
-		Node *child[26];
-		int End, id;
+struct Trie {
+  struct Node {
+    Node *child[26];
+    int End, id;
 
-		Node() {}
-		Node(int sz)
-		{
-			this -> id = sz;
-			this -> End = 0;
+    Node() {}
+    Node(int sz) {
+      this->id = sz;
+      this->End = 0;
 
-			for (int i = 0; i < 26; i++)
-				child[i] = nullptr;
-		}
-	} *root = new Node(++sz);
+      for (int i = 0; i < 26; i++)
+        child[i] = nullptr;
+    }
+  } *root = new Node(++sz);
 
-	void Add(const string &s)
-	{
-		Node *p = root;
-		
-		for (char c : s)
-		{
-			if (p -> child[c - 'a'] == nullptr)
-				p -> child[c - 'a'] = new Node(++sz);
-			p = p -> child[c - 'a'];
-		}
+  void Add(const string &s) {
+    Node *p = root;
 
-		++p -> End;
-	}
+    for (char c : s) {
+      if (p->child[c - 'a'] == nullptr)
+        p->child[c - 'a'] = new Node(++sz);
+      p = p->child[c - 'a'];
+    }
 
-	bool Find(const string &t)
-	{		
-		Node *p = root;
+    ++p->End;
+  }
 
-		for (char c : t)
-		{
-			p = p -> child[c - 'a'];
-			if (p == nullptr) return false;
-		}
+  bool Find(const string &t) {
+    Node *p = root;
 
-		return p -> End;
-	}
+    for (char c : t) {
+      p = p->child[c - 'a'];
+      if (p == nullptr)
+        return false;
+    }
+
+    return p->End;
+  }
 } T;
 
-void loadData()
-{
-	cin >> n >> q;
-	for (int i = 1; i <= n; i++)
-		cin >> s, T.Add(s);
+void loadData() {
+  cin >> n >> q;
+  for (int i = 1; i <= n; i++)
+    cin >> s, T.Add(s);
 }
 
-int Solve()
-{
-	loadData();
+int main() {
+  loadData();
 
-	while (q--)
-		cin >> s, cout << (T.Find(s) ? "YES\n" : "NO\n");
-	
-	return 0;
+  while (q--)
+    cin >> s, cout << (T.Find(s) ? "YES\n" : "NO\n");
+
+  return 0;
 }
-
-int main() { Solve(); }

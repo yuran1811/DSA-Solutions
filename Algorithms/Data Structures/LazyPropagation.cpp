@@ -4,86 +4,88 @@ using namespace std;
 
 const int N = 1e5 + 5;
 
-int n, a[N];
+int n;
+int a[N];
 
-struct Lazy
-{
-	int lz[4 * N];
-	int t[4 * N];
+struct Lazy {
+  struct Node {
+    int lz, val;
+    Node() : lz(0), val(0) {}
+  } t[N * 4];
 
-	void Build(int l, int r, int i)
-	{
-		if (l == r) return void (t[i] = a[l]);
+  void build(int l, int r, int i) {
+    if (l == r)
+      return void(t[i].val = a[l]);
 
-		int m = (l + r) >> 1;
-		Build(l, m, i << 1);
-		Build(m + 1, r, i << 1 | 1);
+    int m = (l + r) >> 1;
+    build(l, m, i << 1);
+    build(m + 1, r, i << 1 | 1);
 
-		t[i] = t[i << 1] + t[i << 1 | 1];
-	}
+    t[i].val = t[i << 1].val + t[i << 1 | 1].val;
+  }
 
-	void Down(int i)
-	{
-		int &val = lz[i];
-		t[i << 1] += val;
-		t[i << 1 | 1] += val;
-		val = 0;
-	}
+  void down(int i) {
+    int &val = t[i].lz;
+    t[i << 1].val += val;
+    t[i << 1 | 1].val += val;
+    val = 0;
+  }
 
-	void Up(int l, int r, int i, int u, int v, int val)
-	{
-		if (v < l || r < u) return;
-		if (l == r)
-		{
-			t[i] += (r - l + 1) * val;
-			lz[i] += val;
-			return;
-		}
+  void update(int l, int r, int i, int u, int v, const int &val) {
+    if (v < l || r < u)
+      return;
 
-		Down(i);
-		
-		int m = (l + r) >> 1;
-		Up(l, m, i << 1, u, v, val);
-		Up(m + 1, r, i << 1 | 1, u, v, val);
-		
-		t[i] = t[i << 1] + t[i << 1 | 1];		
-	}
+    if (l == r) {
+      t[i].val += (r - l + 1) * val;
+      t[i].lz += val;
+      return;
+    }
 
-	int Get(int l, int r, int i, int u, int v)
-	{
-		if (v < l || r < u) return 0;
-		if (u <= l && r <= v) return t[i];
-		
-		Down(i);
-		
-		int m = (l + r) >> 1;
-		return Get(l, m, i << 1, u, v) + Get(m + 1, r, i << 1 | 1, u, v);
-	}
+    down(i);
+
+    int m = (l + r) >> 1;
+    update(l, m, i << 1, u, v, val);
+    update(m + 1, r, i << 1 | 1, u, v, val);
+
+    t[i].val = t[i << 1].val + t[i << 1 | 1].val;
+  }
+
+  int get(int l, int r, int i, int u, int v) {
+    if (v < l || r < u)
+      return 0;
+
+    if (u <= l && r <= v)
+      return t[i].val;
+
+    down(i);
+
+    int m = (l + r) >> 1;
+    return get(l, m, i << 1, u, v) + get(m + 1, r, i << 1 | 1, u, v);
+  }
 } T;
 
-void loadData()
-{
-	cin >> n;
-	for (int i = 1; i <= n; i++)
-		cin >> a[i];
-	T.Build(1, n, 1);
+void loadData() {
+  cin >> n;
+  for (int i = 1; i <= n; i++)
+    cin >> a[i];
+  T.build(1, n, 1);
 }
 
-int Solve()
-{
-	loadData();
+int main() {
+  loadData();
 
-	int q;
-	cin >> q;
+  int q;
+  cin >> q;
 
-	while (q--)
-	{
-		int c, u, v, val;
-		cin >> c >> u >> v;
-		if (c) cout << T.Get(1, n, 1, u, v) << '\n';
-		else cin >> val, T.Up(1, n, 1, u, v, val);
-	}
-	return 0;
+  while (q--) {
+    int c, u, v, val;
+    cin >> c >> u >> v;
+
+    if (c)
+      cout << T.get(1, n, 1, u, v) << '\n';
+    else
+      cin >> val, T.update(1, n, 1, u, v, val);
+  }
+
+  return 0;
 }
-
-int main() { Solve(); }

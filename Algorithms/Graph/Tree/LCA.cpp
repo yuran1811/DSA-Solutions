@@ -1,47 +1,54 @@
-const int N = 1e5 + 5, LOG = 20; 
+#include <iostream>
+#include <vector>
 
-void DFS(int u, int p)
-{
-	for (pair <int, int> x : a[u])
-	{
-		int v = x.first;
-		int w = x.second;
+using namespace std;
 
-		if (v == p) continue;
+const int N = 1e5 + 5, LOG = 20;
 
-		high[v] = high[u] + 1;
-		d[v] = d[u] + w;
-		par[v] = u;
+vector<pair<int, int>> a[N];
+int high[N], d[N], par[N], f[N][LOG + 5];
+int n;
 
-		DFS(v, u);
-	}
+void DFS(int u, int p) {
+  for (pair<int, int> x : a[u]) {
+    int v = x.first;
+    int w = x.second;
+
+    if (v == p)
+      continue;
+
+    high[v] = high[u] + 1;
+    d[v] = d[u] + w;
+    par[v] = u;
+
+    DFS(v, u);
+  }
 }
 
-void Sparse_Table()
-{
-	DFS(1, 0);
-	
-	high[0] = -1;
+void Sparse_Table() {
+  DFS(1, 0);
 
-	for (int j = 1; j <= LOG; j++)
-		for (int i = 1; i <= n; i++)
-			par[i][j] = par[par[i][j - 1]][j - 1];
+  high[0] = -1;
+
+  for (int j = 1; j <= LOG; j++)
+    for (int i = 1; i <= n; i++)
+      f[i][j] = f[f[i][j - 1]][j - 1];
 }
 
-void LCA(int u, int v)
-{
-	if (high[u] < high[v]) swap(u, v);
+int LCA(int u, int v) {
+  if (high[u] < high[v])
+    swap(u, v);
 
-	for (int i = LOG; i >= 0; i--)
-		if (high[par[u][i]] >= high[v])
-			u = par[u][i];
+  for (int i = LOG; i >= 0; i--)
+    if (high[f[u][i]] >= high[v])
+      u = f[u][i];
 
-	if (u == v) return u;
-	
-	for (int i = LOG; i >= 0; i--)
-		if (par[u][i] != par[v][i])
-			u = par[u][i],
-			v = par[v][i];
-			
-	return par[u][0];
+  if (u == v)
+    return u;
+
+  for (int i = LOG; i >= 0; i--)
+    if (f[u][i] != f[v][i])
+      u = f[u][i], v = f[v][i];
+
+  return f[u][0];
 }

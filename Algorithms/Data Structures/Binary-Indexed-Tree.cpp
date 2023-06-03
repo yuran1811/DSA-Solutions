@@ -1,38 +1,38 @@
-struct BIT
-{
-	vector <int> bit1, bit2;
+#include <vector>
 
-	void Init(int n)
-	{
-		bit1.resize(n + 5, 0);
-		bit2.resize(n + 5, 0);
-	}
+using namespace std;
 
-	void Up(vector <int> &bit, int i, int val)
-	{
-		for (; i <= n; i += -i & i)
-			bit[i] += val;
-	}
+struct BIT {
+  vector<int> v1, v2;
+  int n;
 
-	void Range_Up(int l, int r, int val)
-	{
-		Up(bit1, l, val);
-		Up(bit1, r + 1, -val);
-		Up(bit2, l, val * (l - 1));
-		Up(bit2, r + 1, -val * r);
-	}
+  BIT() {}
+  BIT(int n) : n(n) {
+    v1.resize(n + 5, 0);
+    v2.resize(n + 5, 0);
+  }
 
-	int Get(int i, int res = 0)
-	{
-		for (; i > 0; i -= -i & i)
-			res += bit[i];
-		return res;
-	}
+  void pointUpdate(vector<int> &bit, int i, const int &val) {
+    for (; i <= n; i += -i & i)
+      bit[i] += val;
+  }
 
-	int Range_Get(int l, int r)
-	{
-		int SumR = Get(bit1, r) * r - Get(bit2, r);
-		int SumL = Get(bit1, l - 1) * (l - 1) - Get(bit2, l - 1);
-		return SumR - SumL;
-	}
+  void rangeUpdate(int l, int r, const int &val) {
+    pointUpdate(v1, l, val);
+    pointUpdate(v1, r + 1, -val);
+    pointUpdate(v2, l, val * (l - 1));
+    pointUpdate(v2, r + 1, -val * r);
+  }
+
+  int pointGet(vector<int> &bit, int i, int sum = 0) {
+    for (; i > 0; i -= -i & i)
+      sum += bit[i];
+    return sum;
+  }
+
+  int rangeGet(int l, int r) {
+    int rightSum = pointGet(v1, r) * r - pointGet(v2, r);
+    int leftSum = pointGet(v1, l - 1) * (l - 1) - pointGet(v2, l - 1);
+    return rightSum - leftSum;
+  }
 };
