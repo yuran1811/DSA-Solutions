@@ -6,18 +6,17 @@ using namespace std;
 typedef unsigned long long ll;
 typedef array<ll, 4> Int128;
 
-const ll BASE = 1e9; // 1LL << 32;
+const ll BASE = 1e9;  // 1LL << 32;
 
-int n;
-
+namespace BigNum {
 Int128 Plus(Int128 a, Int128 b) {
   Int128 c = {0};
-  int dept = 0;
+  int debt = 0;
   ll t = 0;
 
   for (int i = 0; i < 4; i++) {
-    t = a[i] + b[i] + dept;
-    dept = t / BASE;
+    t = a[i] + b[i] + debt;
+    debt = t / BASE;
     c[i] = t % BASE;
   }
 
@@ -26,13 +25,13 @@ Int128 Plus(Int128 a, Int128 b) {
 
 Int128 Minus(Int128 a, Int128 b) {
   Int128 c = {0};
-  int dept = 0;
+  int debt = 0;
 
   for (int i = 0; i < 4; i++)
-    if (a[i] < b[i] + dept)
-      c[i] = BASE + a[i] - b[i] - dept, dept = 1;
+    if (a[i] < b[i] + debt)
+      c[i] = BASE + a[i] - b[i] - debt, debt = 1;
     else
-      c[i] = a[i] - b[i] - dept, dept = 0;
+      c[i] = a[i] - b[i] - debt, debt = 0;
 
   return c;
 }
@@ -42,21 +41,16 @@ Int128 Multi(Int128 a, Int128 b) {
   ll d[4] = {0};
 
   for (int i = 0; i < 2; i++)
-    for (int j = 0; j < 2; j++)
-      d[i + j] += 1LL * a[i] * b[j];
+    for (int j = 0; j < 2; j++) d[i + j] += 1LL * a[i] * b[j];
 
-  for (int i = 0; i < 3; i++)
-    c[i] = d[i] % BASE, d[i + 1] += d[i] / BASE;
+  for (int i = 0; i < 3; i++) c[i] = d[i] % BASE, d[i + 1] += d[i] / BASE;
 
   return c;
 }
 
 ll Modulo(Int128 a, ll MOD) {
   ll t = 0;
-
-  for (int i = 3; i >= 0; i--)
-    t = (t * BASE + a[i]) % MOD;
-
+  for (int i = 3; i >= 0; i--) t = (t * BASE + a[i]) % MOD;
   return t;
 }
 
@@ -74,32 +68,26 @@ void Print(Int128 a, bool SIGN = 1) {
   bool c = 0;
   for (int i = 3; i >= 0; i--) {
     c |= a[i] > 0;
-    if (c)
-      cout << a[i];
+    if (c) cout << a[i];
   }
 
   cout << '\n';
 }
+}  // namespace BigNum
 
-void loadData() {
+int main() {
   ll a, b, MOD;
   cin >> a >> b >> MOD;
 
-  Int128 x, y;
-  x = Convert(a);
-  y = Convert(b);
+  Int128 x = BigNum::Convert(a);
+  Int128 y = BigNum::Convert(b);
 
-  Print(Plus(x, y));
-  Print(Minus(x, y));
-  Print(Multi(x, y));
+  BigNum::Print(BigNum::Plus(x, y));
+  BigNum::Print(BigNum::Minus(x, y));
+  BigNum::Print(BigNum::Multi(x, y));
 
-  cout << Modulo(x, MOD) << '\n';
-  cout << Modulo(y, MOD) << '\n';
-}
+  cout << BigNum::Modulo(x, MOD) << '\n';
+  cout << BigNum::Modulo(y, MOD) << '\n';
 
-int Solve() {
-  loadData();
   return 0;
 }
-
-int main() { Solve(); }

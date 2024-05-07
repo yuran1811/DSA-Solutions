@@ -62,8 +62,7 @@ bool isHitWall() {
 bool isAteApple() { return snake[0] == apple; }
 
 void drawSnake() {
-  for (int i = 0; i < sz(snake); i++)
-    drawSnakePart(snake[i]);
+  for (int i = 0; i < sz(snake); i++) drawSnakePart(snake[i]);
 }
 void displayScore() {
   Goto(WTH + 3, 2);
@@ -76,16 +75,12 @@ void drawSnakePart(POS p) {
 void growing() { snake.push_back(prevTail); }
 
 void drawBox() {
-  for (int i = 0; i < WTH; i++)
-    cout << "v";
+  for (int i = 0; i < WTH; i++) cout << "v";
 
   Goto(0, HGT);
-  for (int i = 0; i < WTH; i++)
-    cout << "^";
-  for (int i = 1; i < HGT; i++)
-    Goto(0, i), cout << ">";
-  for (int i = 1; i < HGT; i++)
-    Goto(WTH, i), cout << "<";
+  for (int i = 0; i < WTH; i++) cout << "^";
+  for (int i = 1; i < HGT; i++) Goto(0, i), cout << ">";
+  for (int i = 1; i < HGT; i++) Goto(WTH, i), cout << "<";
 }
 
 void genApple() {
@@ -174,8 +169,7 @@ void ShowStartMenu() {
 
   int option;
   cin >> option;
-  if (option != 1)
-    exit(1);
+  if (option != 1) exit(1);
   system("cls");
   cout << "Choose your level (1 - 5): ";
   int level, Time = 3;
@@ -188,8 +182,7 @@ void ShowStartMenu() {
   Goto(0, 2);
   cout << "Ready!";
   Sleep(1000);
-  while (Time)
-    Goto(0, 2), cout << Time-- << "      ", Sleep(1000);
+  while (Time) Goto(0, 2), cout << Time-- << "      ", Sleep(1000);
   Goto(0, 2);
   cout << "GO!";
   Sleep(1000);
@@ -198,8 +191,7 @@ void ShowStartMenu() {
 
 void move() {
   prevTail = snake.back();
-  for (int i = sz(snake) - 1; i > 0; i--)
-    snake[i] = snake[i - 1];
+  for (int i = sz(snake) - 1; i > 0; i--) snake[i] = snake[i - 1];
   if (direction == Dir::up)
     snake[0].y -= 1;
   else if (direction == Dir::down)
@@ -220,8 +212,7 @@ void drawHeadnTail() {
 bool isBiteItself() {
   POS head = snake[0];
   for (int i = 1; i < sz(snake); i++)
-    if (head == snake[i])
-      return true;
+    if (head == snake[i]) return true;
   return false;
 }
 

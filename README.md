@@ -1,41 +1,59 @@
-# Algorithms - Solutions by Yuran
+# DSA + Solutions by Yuran
 
-## Algorithms
+## DSA Collection
 
-#### Data Structures
+### Graph
 
-- [**Segment Tree**](Algorithms/Data%20Structures/SegmentTree.cpp)
-- [**Lazy Propagation**](Algorithms/Data%20Structures/LazyPropagation.cpp)
-- [**Binary Indexed Tree**](Algorithms/Data%20Structures/Binary-Indexed-Tree.cpp)
+#### Flow
 
-#### Graph
+- [**Dinic**](DSACollection/Graph/Flow/Dinic.cpp)
+- [**Dinic (with scale)**](DSACollection/Graph/Flow/Dinic_Scale.cpp)
 
-- [**Tarjan**](Algorithms/Graph/Tarjan.cpp)
-- [**Bridge - Joint**](Algorithms/Graph/Bridge%20-%20Joint.cpp)
-- [**Biconnectivity**](Algorithms/Graph/Biconnectivity.cpp)
-- [**Shortest Path**](Algorithms/Graph/Shortest_Path)
-- [**Maximum Flow**](Algorithms/Graph/Flow)
-- [**Maximum Matching**](Algorithms/Graph/Maximum%20Matching)
+#### Maximum Matching
+
+- [**Hopcroft Karp 1**](DSACollection/Graph/Maximum_Matching/Hopcroft_Karp1.cpp)
+- [**Hopcroft Karp 2**](DSACollection/Graph/Maximum_Matching/Hopcroft_Karp2.cpp)
+- [**Hungarian 1**](DSACollection/Graph/Maximum_Matching/Hungarian1.cpp)
+- [**Hungarian 2**](DSACollection/Graph/Maximum_Matching/Hungarian2.cpp)
+
+#### Shortest Path
+
+- [**Dijkstra (Heap)**](DSACollection/Graph/Shortest_Path/Dijkstra_Heap.cpp)
+- [**Dijkstra (Priority Queue)**](DSACollection/Graph/Shortest_Path/Dijkstra_Priority_Queue.cpp)
+- [**Floyd Warshall**](DSACollection/Graph/Shortest_Path/Floyd.cpp)
+
+#### Tree
+
+- [**Segment Tree**](DSACollection/Graph/Tree/SegmentTree.cpp)
+- [**Lazy Propagation**](DSACollection/Graph/Tree/LazyPropagation.cpp)
+- [**Binary Indexed Tree**](DSACollection/Graph/Tree/BinaryIndexedTree.cpp)
+- [**Lowest Common Ancestor**](DSACollection/Graph/Tree/LCA.cpp)
+- [**Heavy Light Decomposition**](DSACollection/Graph/Tree/HLD_SegTree.cpp)
+
+#### Others
+
+- [**Tarjan**](DSACollection/Graph/Tarjan.cpp)
+- [**Bridge - Joint**](DSACollection/Graph/BridgeJoint.cpp)
+- [**Biconnectivity**](DSACollection/Graph/Biconnectivity.cpp)
+- [**Minimum Spanning Tree**](DSACollection/Graph/Kruskal.cpp)
 - [**Gomory Hu Tree**](https://github.com/yuran1811/Competitive-Programming/blob/main/C%2B%2B/OJ/VNOI/Practice/MCQUERY.cpp)
-- [**Minimum Spanning Tree**](Algorithms/Graph/Kruskal.cpp)
-- [**Lowest Common Ancestor**](Algorithms/Graph/Tree/LCA.cpp)
-- [**Heavy Light Decomposition**](Algorithms/Graph/Tree/HLD_SegTree.cpp)
 
 ### Sorting
 
-- [**Bubble Sort**](Algorithms/Sorting/BubbleSort.cpp)
-- [**Heap Sort**](Algorithms/Sorting/HeapSort.cpp)
-- [**Quick Sort**](Algorithms/Sorting/Quicksort.cpp)
+- [**Bubble Sort**](DSACollection/Sorting/BubbleSort.cpp)
+- [**Heap Sort**](DSACollection/Sorting/HeapSort.cpp)
+- [**Quick Sort**](DSACollection/Sorting/Quicksort.cpp)
 
-#### String
+### String
 
-- [**Hash**](Algorithms/String/Hash.cpp) , [**Hash (multi modulo)**](Algorithms/String/Hash_MultiModulo.cpp)
-- [**Trie**](Algorithms/String/Trie.cpp)
-- [**Z Function**](Algorithms/String/Z_Function.cpp)
-- [**Knuth - Morris - Pratt**](<Algorithms/String/KMP(Knuth-Morris-Pratt).cpp>)
-- [**Aho Corasick**](Algorithms/String/Aho%20Corasick.cpp)
-- [**Suffix Array**](Algorithms/String/Suffix%20Array.cpp)
-- [**Suffix Automaton**](Algorithms/String/Suffix%20Automaton.cpp)
+- [**Hash**](DSACollection/String/Hash.cpp), [**Hash (multi modulo)**](DSACollection/String/Hash_MultiModulo.cpp)
+- [**Trie**](DSACollection/String/Trie.cpp)
+- [**Z Function**](DSACollection/String/Z_Function.cpp)
+- [**Knuth - Morris - Pratt**](DSACollection/String/KMP(Knuth-Morris-Pratt).cpp)
+- [**Aho Corasick**](DSACollection/String/AhoCorasick.cpp)
+- [**Suffix Array**](DSACollection/String/SuffixArray.cpp)
+- [**Suffix Automaton**](DSACollection/String/SuffixAutomaton.cpp)
+
 
 ## Solutions
 
