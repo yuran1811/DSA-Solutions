@@ -55,6 +55,20 @@
 - [**Suffix Automaton**](DSACollection/String/SuffixAutomaton.cpp)
 
 
+## Recursion
+
+### DP
+
+- [**Knapsack**](./Recursion/DP_Knapsack.cpp)
+- [**LCS**](./Recursion/DP_LCS.cpp)
+
+### Backtracking
+
+- [**Sudoku**](./Recursion/Sudoku.cpp)
+- [**8 Queens**](./Recursion/EightQueens.cpp)
+- [**Knight Tour**](./Recursion/KnightTour.cpp)
+- [**Knight Tour 2**](./Recursion/KnightTour2.cpp)
+
 ## Solutions
 
 - CSES [**String**](Solutions/CSES/String)
