@@ -95,7 +95,7 @@ struct AhoCorasick {
   }
 } T;
 
-void loadData() {
+void solving() {
   cin >> s >> q;
   T.Init(q);
 
@@ -103,9 +103,4 @@ void loadData() {
 
   T.Marking(s);
   T.Print();
-}
-
-int main() {
-  loadData();
-  return 0;
 }
